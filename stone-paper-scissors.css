@@ -1,0 +1,145 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: black;
+    flex-direction: column;
+}
+
+.centered-container {
+    display: flex;
+    height: 100%;
+    width: 800px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+h1 {
+    height: 10%;
+}
+
+.game-title {
+    color: #f5d9ab !important;
+}
+
+.score-board, .game-title {
+    text-align: center;
+    color: white;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5rem;
+}
+
+.win {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.lose {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.draw {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.game-item:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+.game-item {
+    border-radius: 25px;
+    padding: 1rem;
+    height: 110px;
+    width: 110px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 40%;
+}
+
+.computer-score, .my-score {
+    font-family: "Pacifico";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 100%;
+    font-size: 7rem;
+}
+
+.my-score-heading,.computer-score-heading {
+    display: flex;
+    font-family: "Pacifico";    
+    font-size: 3rem;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #f5d9ab; /* Choose any color you like */
+}
+
+.input-status {
+    min-height: 10%; /* Allows expansion instead of fixed height */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Pacifico", cursive;
+    font-size: 2rem;
+    text-align: center; /* Ensures text stays within bounds */
+    padding: 10px; /* Adds space to prevent overlap */
+    flex-wrap: wrap; /* Ensures text does not overflow */
+}
+
+.margin-line {
+    height: 50%;
+    width: 2px;
+    border-right: 2px dotted white;
+    /* Add this */
+    background: none;
+    /* Ensure no background color interferes */
+}
+
+.game-item:hover {
+    cursor: pointer;
+}
+
+img {
+    width: 50px;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}

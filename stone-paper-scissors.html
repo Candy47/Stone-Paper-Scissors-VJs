@@ -1,0 +1,88 @@
+<div class="main-container">
+    <div class="centered-container">
+        <h1 class="game-title">Stone Paper Scissors</h1>
+        <h4 class="score-board">Score Board</h3>
+        <div class="scoreboard">
+            <div class="computer-score-heading">
+                Computer
+                <div class="computer-score">
+                    0</div>
+            </div>
+            <div class="margin-line"></div>
+            <div class="my-score-heading">
+                <span>Me</span>
+                <div class="my-score">
+                    0
+                </div>
+            </div>
+        </div>
+
+        <div class="input-status">Pick your move!</div>
+
+        <div class="game-container">
+            <button class="game-item" data-choice="rock">
+                <img src="stonee.png" alt="rock" />
+            </button>
+            <button class="game-item" data-choice="paper">
+                <img src="paper.png" alt="paper" />
+            </button>
+            <button class="game-item" data-choice="scissors">
+                <img src="scissors.png" alt="scissors" />
+            </button>
+        </div>
+
+        <link rel="stylesheet" href="stone-paper-scissors.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    </div>
+</div>
+
+<script>
+    const userInputButtons = document.querySelectorAll(".game-item");
+    const computerScoreRef = document.querySelector(".computer-score");
+    const myScoreRef = document.querySelector(".my-score");
+    const inputStatusRef = document.querySelector(".input-status");
+    const choices = ["rock", "paper", "scissors"];
+
+    let computerScore = 0;
+    let myScore = 0;
+
+    userInputButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const userChoice = button.dataset.choice;
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            const result = determineWinner(userChoice, computerChoice);
+
+            // Display choices with better readability
+            inputStatusRef.innerHTML = `You picked <span class="highlight">&nbsp${userChoice}&nbsp</span> and JavaScript picked <span class="highlight">&nbsp${computerChoice}</span> &nbsp`; 
+
+            if (result === "user") {
+                myScore++;
+                myScoreRef.textContent = myScore;
+                inputStatusRef.innerHTML += " &nbsp<span class='win'>You Win!</span>";
+            } else if (result === "computer") {
+                computerScore++;
+                computerScoreRef.textContent = computerScore;
+                inputStatusRef.innerHTML +=
+                    " &nbsp<span class='lose'>Computer Wins!</span>";
+            } else {
+                inputStatusRef.innerHTML +=
+                    " &nbsp<span class='draw'>It's a draw! Try again.</span>";
+            }
+        });
+    });
+
+    function determineWinner(user, computer) {
+        if (user === computer) return "draw";
+        if (
+            (user === "rock" && computer === "scissors") ||
+            (user === "paper" && computer === "rock") ||
+            (user === "scissors" && computer === "paper")
+        ) {
+            return "user";
+        } else {
+            return "computer";
+        }
+    }
+</script>
